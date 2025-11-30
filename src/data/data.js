@@ -6,6 +6,12 @@ import {
   FaGitAlt,
   FaGithub,
   FaBootstrap,
+  FaLaptopCode,
+  FaPlug,
+  FaDatabase,
+  FaCode,
+  FaPalette,
+  FaTools,
 } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { FaWordpressSimple } from "react-icons/fa";
@@ -218,4 +224,13 @@ export const Educations = [
     school: "Lala Amina High School",
     period: "2023",
   },
+];
+
+export const WhatIDo = [
+    { title: "Web App Development",      icon: FaLaptopCode },
+    { title: "API Integration",          icon: FaPlug },
+    { title: "Backend Development",      icon: FaDatabase },
+    { title: "Frontend Development",     icon: FaCode },
+    { title: "UI/UX Implementation",     icon: FaPalette },
+    { title: "Debugging & Optimization", icon: FaTools },
 ];

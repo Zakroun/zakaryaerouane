@@ -8,10 +8,10 @@ import {
   MapPin,
   ExternalLink,
   GraduationCap,
-  Code,
 } from "lucide-react";
+import { FaMoon } from "react-icons/fa";
 import { RiRadioButtonLine } from "react-icons/ri";
-import { FaTools } from "react-icons/fa";
+import { FaTools, FaRegLightbulb } from "react-icons/fa";
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { IoRocketOutline } from "react-icons/io5";
 import { LuSend } from "react-icons/lu";
@@ -22,6 +22,7 @@ import { socials } from "../data/data";
 import { stats } from "../data/data";
 import { jobs } from "../data/data";
 import { Educations } from "../data/data";
+import { WhatIDo } from "../data/data";
 const Portfolio = () => {
   const [isDark, setIsDark] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -41,11 +42,13 @@ const Portfolio = () => {
   const [name, setName] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const texts = ["Full Stack Developer", "web Developer"];
+  const texts = [
+    "I build modern, scalable web apps with clean, efficient code.",
+    "Full Stack Developer.",
+  ];
   useEffect(() => {
     let timeout;
     const currentText = texts[currentTextIndex];
-
     if (!isDeleting && name.length < currentText.length) {
       timeout = setTimeout(() => {
         setName(currentText.substring(0, name.length + 1));
@@ -83,7 +86,7 @@ const Portfolio = () => {
         {isDark ? (
           <Sun className="w-5 h-5 text-yellow-400" />
         ) : (
-          <Moon className="w-5 h-5 text-gray-700" />
+          <FaMoon className="w-5 h-5 text-gray-700" />
         )}
       </button>
 
@@ -309,7 +312,36 @@ const Portfolio = () => {
               ))}
             </div>
           </section>
-
+          {/* WhatIDo */}
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <FaRegLightbulb className="w-6 h-6" /> What I Do
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {WhatIDo.map((item, index) => {
+                const Icon = item.icon || FaRegLightbulb;
+                return (
+                  <div
+                    key={index}
+                    className={`flex items-start gap-4 p-5 ${
+                    isDark ? "bg-zinc-900 text-white border-zinc-800" : "bg-white text-black border-gray-100"
+                  } rounded-xl border  hover:border-green-500 transition-all shadow-sm hover:shadow-green-500/20`}
+                  >
+                    <div className={`p-3 ${
+                    isDark ? "bg-zinc-800" : "bg-gray-100"
+                  } rounded-lg`}>
+                      <Icon className="w-7 h-7 text-green-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold">
+                        {item.title}
+                      </h3>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
           {/* Skills Section */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
