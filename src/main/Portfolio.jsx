@@ -72,7 +72,30 @@ const Portfolio = () => {
   }, [name, isDeleting, currentTextIndex]);
 
   const [showPDF, setShowPDF] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [formState, handleSubmit] = useForm("xblnoqrz");
+  const [formdata, useformdata] = useState({
+    fullname: "",
+    email: "",
+    phonenumber: "",
+    message: "",
+  });
+  useEffect(() => {
+    if (formState.succeeded) {
+      useformdata({
+        fullname: "",
+        email: "",
+        phonenumber: "",
+        message: "",
+      });
+      setShowSuccess(true);
+      const timer = setTimeout(() => {
+        setShowSuccess(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [formState.succeeded]);
+
   return (
     <div
       className={`min-h-screen ${
@@ -410,7 +433,7 @@ const Portfolio = () => {
                 </div>
               </div>
               <div className="space-y-4">
-                {formState.succeeded && (
+                {showSuccess && (
                   <p className="text-green-500 text-center mb-1 rounded-xl font-semibold">
                     Message sent successfully!
                   </p>
@@ -420,6 +443,10 @@ const Portfolio = () => {
                     type="text"
                     placeholder="Full Name"
                     name="fullname"
+                    value={formdata.fullname}
+                    onChange={(e) =>
+                      useformdata({ ...formdata, fullname: e.target.value })
+                    }
                     className={`w-full ${
                       isDark ? "bg-black" : "bg-gray-100"
                     } px-4 py-3 mb-2 rounded-xl outline-none`}
@@ -430,6 +457,10 @@ const Portfolio = () => {
                     id="email"
                     type="email"
                     name="email"
+                    value={formdata.email}
+                    onChange={(e) =>
+                      useformdata({ ...formdata, email: e.target.value })
+                    }
                     placeholder="Email"
                     className={`w-full ${
                       isDark ? "bg-black" : "bg-gray-100"
@@ -445,6 +476,10 @@ const Portfolio = () => {
                   <input
                     type="tel"
                     placeholder="Phone Number"
+                    value={formdata.phonenumber}
+                    onChange={(e) =>
+                      useformdata({ ...formdata, phonenumber: e.target.value })
+                    }
                     name="phone"
                     className={`w-full ${
                       isDark ? "bg-black" : "bg-gray-100"
@@ -455,6 +490,10 @@ const Portfolio = () => {
                     id="message"
                     name="message"
                     placeholder="Message"
+                    value={formdata.message}
+                    onChange={(e) =>
+                      useformdata({ ...formdata, message: e.target.value })
+                    }
                     rows="4"
                     className={`w-full ${
                       isDark ? "bg-black" : "bg-gray-100"
