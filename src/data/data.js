@@ -23,7 +23,7 @@ import { FaLaravel } from "react-icons/fa6";
 import { SiPostman } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
-import { MdOutlineMailOutline } from "react-icons/md";
+import { MdOutgoingMail } from "react-icons/md";
 
 export const projects = [
   {
@@ -70,7 +70,7 @@ export const socials = [
     link: "https://www.instagram.com/coding.withzak/profilecard/?igsh=YjZxOHlwaTNseHps",
   },
   {
-    icon: <MdOutlineMailOutline className="w-4 h-4" />,
+    icon: <MdOutgoingMail className="w-4 h-4" />,
     link: "mailto:zakaryaerouane@gmail.com",
   },
 ];

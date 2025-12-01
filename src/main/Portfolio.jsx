@@ -23,6 +23,8 @@ import { stats } from "../data/data";
 import { jobs } from "../data/data";
 import { Educations } from "../data/data";
 import { WhatIDo } from "../data/data";
+import { useForm, ValidationError } from "@formspree/react";
+
 const Portfolio = () => {
   const [isDark, setIsDark] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -69,6 +71,8 @@ const Portfolio = () => {
     return () => clearTimeout(timeout);
   }, [name, isDeleting, currentTextIndex]);
 
+  const [showPDF, setShowPDF] = useState(false);
+  const [formState, handleSubmit] = useForm("xblnoqrz");
   return (
     <div
       className={`min-h-screen ${
@@ -77,7 +81,7 @@ const Portfolio = () => {
     >
       <button
         onClick={() => setIsDark(!isDark)}
-        className={`fixed top-4 right-4 z-50 p-3 rounded-full ${
+        className={`fixed top-3 right-3 z-50 p-3 rounded-full ${
           isDark
             ? "bg-zinc-800 hover:bg-zinc-700"
             : "bg-white hover:bg-gray-100"
@@ -117,6 +121,7 @@ const Portfolio = () => {
           {/* Action Buttons */}
           <div className="flex gap-3 mb-6">
             <button
+              onClick={() => setShowPDF(true)}
               className={`flex-1 ${
                 isDark
                   ? "bg-zinc-800 hover:bg-zinc-700"
@@ -158,7 +163,8 @@ const Portfolio = () => {
           {/* Hero Section */}
           <div className="mb-12">
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-2xl">👋</span>
+              {/* <span className="text-2xl">👋</span> */}
+              <img src="images/hand1.png" alt="hand" className="w-6" />
               <span className="text-sm text-gray-400">Say Hello</span>
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold mb-8">
@@ -324,18 +330,20 @@ const Portfolio = () => {
                   <div
                     key={index}
                     className={`flex items-start gap-4 p-5 ${
-                    isDark ? "bg-zinc-900 text-white border-zinc-800" : "bg-white text-black border-gray-100"
-                  } rounded-xl border  hover:border-green-500 transition-all shadow-sm hover:shadow-green-500/20`}
+                      isDark
+                        ? "bg-zinc-900 text-white border-zinc-800"
+                        : "bg-white text-black border-gray-100"
+                    } rounded-xl border  hover:border-green-500 transition-all shadow-sm hover:shadow-green-500/20`}
                   >
-                    <div className={`p-3 ${
-                    isDark ? "bg-zinc-800" : "bg-gray-100"
-                  } rounded-lg`}>
+                    <div
+                      className={`p-3 ${
+                        isDark ? "bg-zinc-800" : "bg-gray-100"
+                      } rounded-lg`}
+                    >
                       <Icon className="w-7 h-7 text-green-500" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold">
-                        {item.title}
-                      </h3>
+                      <h3 className="text-lg font-semibold">{item.title}</h3>
                     </div>
                   </div>
                 );
@@ -402,37 +410,73 @@ const Portfolio = () => {
                 </div>
               </div>
               <div className="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  className={`w-full ${
-                    isDark ? "bg-black" : "bg-gray-100"
-                  } px-4 py-3 rounded-xl outline-none`}
-                />
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className={`w-full ${
-                    isDark ? "bg-black" : "bg-gray-100"
-                  } px-4 py-3 rounded-xl outline-none`}
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone Number"
-                  className={`w-full ${
-                    isDark ? "bg-black" : "bg-gray-100"
-                  } px-4 py-3 rounded-xl outline-none`}
-                />
-                <textarea
-                  placeholder="Message"
-                  rows="4"
-                  className={`w-full ${
-                    isDark ? "bg-black" : "bg-gray-100"
-                  } px-4 py-3 rounded-xl outline-none resize-none`}
-                ></textarea>
-                <button className="w-full bg-gradient-to-r from-green-400 to-emerald-500 hover:from-green-500 hover:to-emerald-600 text-black py-3 rounded-xl font-bold transition-all">
-                  Send Message
-                </button>
+                {formState.succeeded && (
+                  <p className="text-green-500 text-center mb-1 rounded-xl font-semibold">
+                    Message sent successfully!
+                  </p>
+                )}
+                <form onSubmit={handleSubmit}>
+                  <input
+                    type="text"
+                    placeholder="Full Name"
+                    name="fullname"
+                    className={`w-full ${
+                      isDark ? "bg-black" : "bg-gray-100"
+                    } px-4 py-3 mb-2 rounded-xl outline-none`}
+                    required
+                  />
+
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    className={`w-full ${
+                      isDark ? "bg-black" : "bg-gray-100"
+                    } px-4 py-3 mb-2 rounded-xl outline-none`}
+                    required
+                  />
+                  <ValidationError
+                    prefix="Email"
+                    field="email"
+                    errors={formState.errors}
+                  />
+
+                  <input
+                    type="tel"
+                    placeholder="Phone Number"
+                    name="phone"
+                    className={`w-full ${
+                      isDark ? "bg-black" : "bg-gray-100"
+                    } px-4 py-3 mb-2 rounded-xl outline-none`}
+                  />
+
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Message"
+                    rows="4"
+                    className={`w-full ${
+                      isDark ? "bg-black" : "bg-gray-100"
+                    } px-4 py-3 mb-2 rounded-xl outline-none resize-none`}
+                    required
+                  ></textarea>
+                  <ValidationError
+                    prefix="Message"
+                    field="message"
+                    errors={formState.errors}
+                  />
+
+                  <button
+                    type="submit"
+                    disabled={formState.submitting}
+                    className="w-full bg-gradient-to-r from-green-400 to-emerald-500
+                    hover:from-green-500 hover:to-emerald-600 text-black 
+                    py-3 rounded-xl font-bold transition-all"
+                  >
+                    {formState.submitting ? "Sending..." : "Send Message"}
+                  </button>
+                </form>
               </div>
             </div>
           </section>
@@ -447,6 +491,50 @@ const Portfolio = () => {
           </footer>
         </div>
       </div>
+      {showPDF && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[999] p-4">
+          <div
+            className={`w-full max-w-3xl ${
+              isDark ? "bg-zinc-900" : "bg-white"
+            } rounded-2xl p-5 shadow-xl`}
+          >
+            {/* Header */}
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-bold">My CV / Resume</h2>
+              <button
+                onClick={() => setShowPDF(false)}
+                className="text-gray-400 hover:text-green-500 text-2xl font-bold"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* PDF Viewer */}
+            <iframe
+              src="pdf/ZakaryaeRouaneCV(eng).pdf"
+              className="w-full h-[400px] rounded-xl border"
+            ></iframe>
+
+            {/* Buttons */}
+            <div className="flex float-end mt-5">
+              <button
+                onClick={() => setShowPDF(false)}
+                className="px-5 py-2 mr-2 rounded-xl bg-gray-300 text-black hover:bg-gray-400"
+              >
+                Close
+              </button>
+
+              <a
+                href="pdf/ZakaryaeRouaneCV(eng).pdf"
+                download
+                className="px-5 py-2 rounded-xl bg-green-500 text-black font-bold hover:bg-green-600"
+              >
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
