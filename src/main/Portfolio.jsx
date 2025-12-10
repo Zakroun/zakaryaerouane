@@ -31,6 +31,7 @@ const Portfolio = () => {
     if (savedTheme) return savedTheme === "dark";
     return true;
   });
+  
   useEffect(() => {
     localStorage.setItem("theme", isDark ? "dark" : "light");
     if (isDark) {
@@ -41,6 +42,7 @@ const Portfolio = () => {
       document.body.classList.remove("bg-black");
     }
   }, [isDark]);
+  
   const [name, setName] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -48,6 +50,7 @@ const Portfolio = () => {
     "I build modern, scalable web apps with clean, efficient code.",
     "Full Stack Developer.",
   ];
+  
   useEffect(() => {
     let timeout;
     const currentText = texts[currentTextIndex];
@@ -74,15 +77,18 @@ const Portfolio = () => {
   const [showPDF, setShowPDF] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [formState, handleSubmit] = useForm("xblnoqrz");
-  const [formdata, useformdata] = useState({
+  const [formdata, setFormdata] = useState({
     fullname: "",
     email: "",
     phonenumber: "",
     message: "",
   });
+  
+  const [visibleProjectsCount, setVisibleProjectsCount] = useState(4);
+  
   useEffect(() => {
     if (formState.succeeded) {
-      useformdata({
+      setFormdata({
         fullname: "",
         email: "",
         phonenumber: "",
@@ -95,6 +101,13 @@ const Portfolio = () => {
       return () => clearTimeout(timer);
     }
   }, [formState.succeeded]);
+
+  const handleLoadMore = () => {
+    // Show all projects when clicking "Load More"
+    setVisibleProjectsCount(projects.length);
+  };
+
+  const visibleProjects = projects.slice(0, visibleProjectsCount);
 
   return (
     <div
@@ -186,7 +199,6 @@ const Portfolio = () => {
           {/* Hero Section */}
           <div className="mb-12">
             <div className="flex items-center gap-2 mb-4">
-              {/* <span className="text-2xl">👋</span> */}
               <img src="images/hand1.png" alt="hand" className="w-6" />
               <span className="text-sm text-gray-400">Say Hello</span>
             </div>
@@ -219,7 +231,7 @@ const Portfolio = () => {
                     isDark ? "bg-zinc-900" : "bg-white"
                   } p-5 rounded-xl text-center`}
                 >
-                  <div className="text-2xl font-bold mb-1">{stat.value}</div>
+                  <div className="text-2xl text-green-500 font-bold mb-1">{stat.value}</div>
                   <div className="text-xs text-gray-400">{stat.label}</div>
                 </div>
               ))}
@@ -245,7 +257,7 @@ const Portfolio = () => {
                       <h3 className="font-bold text-lg">{job.role}</h3>
                       <p className="text-sm text-gray-400">{job.company}</p>
                     </div>
-                    <span className="text-sm text-gray-400">{job.period}</span>
+                    <span className="text-sm text-green-500">{job.period}</span>
                   </div>
                   <p
                     className={`text-sm ${
@@ -266,7 +278,7 @@ const Portfolio = () => {
               Projects
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {projects.map((project, i) => (
+              {visibleProjects.map((project, i) => (
                 <div
                   key={i}
                   className={`${
@@ -276,7 +288,7 @@ const Portfolio = () => {
                   <div
                     className={`${
                       project.color
-                    } h-48 flex items-center justify-center text-4xl font-bold ${
+                    } h-[250px] flex items-center justify-center text-4xl font-bold ${
                       project.color.includes("green") ||
                       project.color.includes("cyan")
                         ? "text-white"
@@ -287,8 +299,8 @@ const Portfolio = () => {
                       src={project.image}
                       alt={project.name}
                       className={`w-${
-                        project.name === "Homixstore" ? "[370px]" : "[350px]"
-                      } mt-14`}
+                        project.name === "Homixstore" ? "[350px]" : "[340px]"
+                      } mt-6`}
                     />
                   </div>
                   <div className="p-4">
@@ -305,15 +317,19 @@ const Portfolio = () => {
                 </div>
               ))}
             </div>
-            <button
-              className={`mt-6 w-full ${
-                isDark
-                  ? "bg-zinc-900 hover:bg-zinc-800"
-                  : "bg-white hover:bg-gray-100"
-              } py-3 rounded-xl font-medium transition-colors`}
-            >
-              Load More
-            </button>
+            
+            {projects.length > visibleProjectsCount && (
+              <button
+                onClick={handleLoadMore}
+                className={`mt-6 w-full ${
+                  isDark
+                    ? "bg-zinc-900 hover:bg-zinc-800"
+                    : "bg-white hover:bg-gray-100"
+                } py-3 rounded-xl font-medium transition-colors`}
+              >
+                Load More ({projects.length - visibleProjectsCount} more projects)
+              </button>
+            )}
           </section>
 
           {/* Education Section */}
@@ -335,12 +351,13 @@ const Portfolio = () => {
                       <h3 className="font-bold text-lg">{edu.degree}</h3>
                       <p className="text-sm text-gray-400">{edu.school}</p>
                     </div>
-                    <span className="text-sm text-gray-400">{edu.period}</span>
+                    <span className="text-sm text-green-500">{edu.period}</span>
                   </div>
                 </div>
               ))}
             </div>
           </section>
+          
           {/* WhatIDo */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
@@ -373,6 +390,7 @@ const Portfolio = () => {
               })}
             </div>
           </section>
+          
           {/* Skills Section */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
@@ -401,7 +419,6 @@ const Portfolio = () => {
           </section>
 
           {/* Contact Section */}
-
           <section
             className={`${isDark ? "bg-zinc-900" : "bg-white"} p-8 rounded-2xl`}
           >
@@ -445,7 +462,7 @@ const Portfolio = () => {
                     name="fullname"
                     value={formdata.fullname}
                     onChange={(e) =>
-                      useformdata({ ...formdata, fullname: e.target.value })
+                      setFormdata({ ...formdata, fullname: e.target.value })
                     }
                     className={`w-full ${
                       isDark ? "bg-black" : "bg-gray-100"
@@ -459,7 +476,7 @@ const Portfolio = () => {
                     name="email"
                     value={formdata.email}
                     onChange={(e) =>
-                      useformdata({ ...formdata, email: e.target.value })
+                      setFormdata({ ...formdata, email: e.target.value })
                     }
                     placeholder="Email"
                     className={`w-full ${
@@ -478,7 +495,7 @@ const Portfolio = () => {
                     placeholder="Phone Number"
                     value={formdata.phonenumber}
                     onChange={(e) =>
-                      useformdata({ ...formdata, phonenumber: e.target.value })
+                      setFormdata({ ...formdata, phonenumber: e.target.value })
                     }
                     name="phone"
                     className={`w-full ${
@@ -492,7 +509,7 @@ const Portfolio = () => {
                     placeholder="Message"
                     value={formdata.message}
                     onChange={(e) =>
-                      useformdata({ ...formdata, message: e.target.value })
+                      setFormdata({ ...formdata, message: e.target.value })
                     }
                     rows="4"
                     className={`w-full ${
@@ -530,6 +547,7 @@ const Portfolio = () => {
           </footer>
         </div>
       </div>
+      
       {showPDF && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[999] p-4">
           <div
@@ -577,4 +595,5 @@ const Portfolio = () => {
     </div>
   );
 };
+
 export default Portfolio;

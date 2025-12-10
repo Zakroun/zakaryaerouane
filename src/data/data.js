@@ -27,6 +27,30 @@ import { MdOutgoingMail } from "react-icons/md";
 
 export const projects = [
   {
+    name: "HomeNest",
+    category: "E-Commerce & Rental Platform",
+    image: "images/homenest.png",
+    pages: "+12 Pages",
+    color: "bg-blue-100",
+    desc: "Plateforme complète pour vendre, acheter et louer des biens immobiliers avec espace admin et dashboard utilisateur.",
+  },
+  {
+    name: "3otor",
+    category: "Perfume E-Commerce",
+    image: "images/3otorperfum.png",
+    pages: "+10 Pages",
+    color: "bg-amber-100",
+    desc: "Boutique en ligne spécialisée dans la vente de parfums avec gestion de stock, panier, commandes et dashboard admin.",
+  },
+  {
+    name: "GoalPass",
+    category: "Match Ticketing System",
+    image: "images/goalpass.png",
+    pages: "+10 Pages",
+    color: "bg-green-100",
+    desc: "Plateforme pour acheter des tickets de matchs, avec authentification, paiement et dashboard admin & utilisateur.",
+  },
+  {
     name: "Unicomnova AI",
     category: "AI Chatbot",
     image: "images/unicomnova.png",
@@ -227,10 +251,10 @@ export const Educations = [
 ];
 
 export const WhatIDo = [
-    { title: "Web App Development",      icon: FaLaptopCode },
-    { title: "API Integration",          icon: FaPlug },
-    { title: "Backend Development",      icon: FaDatabase },
-    { title: "Frontend Development",     icon: FaCode },
-    { title: "UI/UX Implementation",     icon: FaPalette },
-    { title: "Debugging & Optimization", icon: FaTools },
+  { title: "Web App Development", icon: FaLaptopCode },
+  { title: "API Integration", icon: FaPlug },
+  { title: "Backend Development", icon: FaDatabase },
+  { title: "Frontend Development", icon: FaCode },
+  { title: "UI/UX Implementation", icon: FaPalette },
+  { title: "Debugging & Optimization", icon: FaTools },
 ];
