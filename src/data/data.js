@@ -51,18 +51,18 @@ export const projects = [
     desc: "Plateforme pour acheter des tickets de matchs, avec authentification, paiement et dashboard admin & utilisateur.",
   },
   {
-    name: "Unicomnova AI",
-    category: "AI Chatbot",
-    image: "images/unicomnova.png",
-    pages: "+7 Pages",
-    color: "bg-blue-100",
-  },
-  {
     name: "Edulead",
     category: "Education Platform",
     image: "images/edulead.png",
     pages: "+12 Pages",
     color: "bg-green-100",
+  },
+  {
+    name: "Unicomnova AI",
+    category: "AI Chatbot",
+    image: "images/unicomnova.png",
+    pages: "+7 Pages",
+    color: "bg-blue-100",
   },
   {
     name: "Homixstore",

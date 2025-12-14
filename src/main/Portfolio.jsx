@@ -568,7 +568,7 @@ const Portfolio = () => {
 
             {/* PDF Viewer */}
             <iframe
-              src="pdf/ZakaryaeRouaneCV(eng).pdf"
+              src="pdf/zakaryaerouane(eng).pdf"
               className="w-full h-[400px] rounded-xl border"
             ></iframe>
 
