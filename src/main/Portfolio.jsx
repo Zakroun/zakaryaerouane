@@ -31,7 +31,7 @@ const Portfolio = () => {
     if (savedTheme) return savedTheme === "dark";
     return true;
   });
-  
+
   useEffect(() => {
     localStorage.setItem("theme", isDark ? "dark" : "light");
     if (isDark) {
@@ -42,15 +42,15 @@ const Portfolio = () => {
       document.body.classList.remove("bg-black");
     }
   }, [isDark]);
-  
+
   const [name, setName] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const texts = [
-    "I build modern, scalable web apps with clean, efficient code.",
     "Full Stack Developer.",
+    "I build modern, scalable web apps with clean, efficient code.",
   ];
-  
+
   useEffect(() => {
     let timeout;
     const currentText = texts[currentTextIndex];
@@ -83,9 +83,9 @@ const Portfolio = () => {
     phonenumber: "",
     message: "",
   });
-  
+
   const [visibleProjectsCount, setVisibleProjectsCount] = useState(4);
-  
+
   useEffect(() => {
     if (formState.succeeded) {
       setFormdata({
@@ -138,11 +138,13 @@ const Portfolio = () => {
         >
           {/* Profile Card */}
           <div className="rounded-2xl text-center p-6 mb-6">
-            <img
-              src="images/zakaryaerouane.jpg"
-              alt="zakaryae rouane"
-              className="w-full h-64 object-cover rounded-xl mb-4"
-            />
+            <div className="flex justify-center">
+              <img
+                src="images/zakaryaerouane.jpg"
+                alt="Zakaryae Rouane"
+                className="w-60 h-64 object-cover rounded-xl mb-4"
+              />
+            </div>
             <div className="flex justify-center">
               <div className="flex items-center gap-2 mb-2">
                 <RiRadioButtonLine size={15} className="text-green-500" />
@@ -151,7 +153,7 @@ const Portfolio = () => {
                 </span>
               </div>
             </div>
-            <h2 className="text-xl font-bold">Zakaryae rouane</h2>
+            <h2 className="text-xl font-bold">Zakaryae Rouane</h2>
           </div>
 
           {/* Action Buttons */}
@@ -231,7 +233,9 @@ const Portfolio = () => {
                     isDark ? "bg-zinc-900" : "bg-white"
                   } p-5 rounded-xl text-center`}
                 >
-                  <div className="text-2xl text-green-500 font-bold mb-1">{stat.value}</div>
+                  <div className="text-2xl text-green-500 font-bold mb-1">
+                    {stat.value}
+                  </div>
                   <div className="text-xs text-gray-400">{stat.label}</div>
                 </div>
               ))}
@@ -317,7 +321,7 @@ const Portfolio = () => {
                 </div>
               ))}
             </div>
-            
+
             {projects.length > visibleProjectsCount && (
               <button
                 onClick={handleLoadMore}
@@ -327,7 +331,8 @@ const Portfolio = () => {
                     : "bg-white hover:bg-gray-100"
                 } py-3 rounded-xl font-medium transition-colors`}
               >
-                Load More ({projects.length - visibleProjectsCount} more projects)
+                Load More ({projects.length - visibleProjectsCount} more
+                projects)
               </button>
             )}
           </section>
@@ -357,7 +362,7 @@ const Portfolio = () => {
               ))}
             </div>
           </section>
-          
+
           {/* WhatIDo */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
@@ -390,7 +395,7 @@ const Portfolio = () => {
               })}
             </div>
           </section>
-          
+
           {/* Skills Section */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
@@ -547,7 +552,7 @@ const Portfolio = () => {
           </footer>
         </div>
       </div>
-      
+
       {showPDF && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[999] p-4">
           <div
