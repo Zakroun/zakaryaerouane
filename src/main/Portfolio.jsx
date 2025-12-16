@@ -139,7 +139,7 @@ const Portfolio = () => {
           {/* Profile Card */}
           <div className="rounded-2xl text-center p-6 mb-6">
             <div className="flex justify-center">
-              <img
+              <img loading="lazy"
                 src="images/zakaryaerouane.jpg"
                 alt="Zakaryae Rouane"
                 className="w-60 h-64 object-cover rounded-xl mb-4"
@@ -201,7 +201,7 @@ const Portfolio = () => {
           {/* Hero Section */}
           <div className="mb-12">
             <div className="flex items-center gap-2 mb-4">
-              <img src="images/hand1.png" alt="hand" className="w-6" />
+              <img loading="lazy" src="images/hand1.png" alt="hand" className="w-6" />
               <span className="text-sm text-gray-400">Say Hello</span>
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold mb-8">
@@ -299,7 +299,7 @@ const Portfolio = () => {
                         : "text-gray-800"
                     }`}
                   >
-                    <img
+                    <img loading="lazy"
                       src={project.image}
                       alt={project.name}
                       className={`w-${
