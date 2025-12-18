@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
-  Moon,
   Sun,
   Download,
   Mail,
@@ -245,7 +244,7 @@ const Portfolio = () => {
           {/* Experience Section */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-              <IoBriefcaseOutline className="w-6 h-6" />
+              <img src="/images/briefcase.png" className="w-6 h-6" />
               Experience
             </h2>
             <div className="space-y-4">
@@ -278,7 +277,7 @@ const Portfolio = () => {
           {/* Projects Section */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-              <IoRocketOutline className="w-6 h-6" />
+              <img src="/images/rocket.png" className="w-6 h-6" />
               Projects
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -340,7 +339,7 @@ const Portfolio = () => {
           {/* Education Section */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-              <GraduationCap className="w-6 h-6" />
+              <img src="/images/graduation.png" className="w-6 h-6" />
               Education
             </h2>
             <div className="space-y-4">
@@ -366,7 +365,7 @@ const Portfolio = () => {
           {/* WhatIDo */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-              <FaRegLightbulb className="w-6 h-6" /> What I Do
+              <img src="/images/light.png" className="w-6 h-6" /> What I Do
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {WhatIDo.map((item, index) => {
@@ -399,7 +398,7 @@ const Portfolio = () => {
           {/* Skills Section */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-              <FaTools className="w-6 h-6" /> skills
+              <img src="/images/hammer.png" className="w-6 h-6" /> skills
             </h2>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
               {skills.map((skill, i) => (
@@ -428,7 +427,7 @@ const Portfolio = () => {
             className={`${isDark ? "bg-zinc-900" : "bg-white"} p-8 rounded-2xl`}
           >
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-              <MdOutlineContacts className="w-6 h-6" /> Let's Get in Touch!
+              <img src="/images/inbox.png" className="w-6 h-6" /> Let's Get in Touch!
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="space-y-4">
