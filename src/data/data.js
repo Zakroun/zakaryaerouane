@@ -55,7 +55,7 @@ export const projects = [
     category: "Match Ticketing System",
     image: "images/goalpass.png",
     pages: "+10 Pages",
-    color: "bg-green-700",
+    color: "bg-green-800",
     desc: "Platform to purchase match tickets, featuring authentication, payment, and admin & user dashboards.",
   },
   {
@@ -65,6 +65,14 @@ export const projects = [
     pages: "+12 Pages",
     color: "bg-blue-200",
     desc: "An online education platform with courses, quizzes, and a management dashboard for students and instructors.",
+  },
+  {
+    name: "AFCON 2025",
+    category: "Sports / Football Web App",
+    image: "images/afcon2025.png",
+    pages: "+10 Pages",
+    color: "bg-[#800000]", // You can also use #800000 or #07A88F as main colors
+    desc: "A comprehensive web app for AFCON 2025, featuring match schedules, cities, groups, national teams, and live scores.",
   },
   {
     name: "Unicomnova AI",
