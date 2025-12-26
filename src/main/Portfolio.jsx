@@ -6,15 +6,11 @@ import {
   Phone,
   MapPin,
   ExternalLink,
-  GraduationCap,
 } from "lucide-react";
 import { FaMoon } from "react-icons/fa";
 import { RiRadioButtonLine } from "react-icons/ri";
-import { FaTools, FaRegLightbulb } from "react-icons/fa";
-import { IoBriefcaseOutline } from "react-icons/io5";
-import { IoRocketOutline } from "react-icons/io5";
+import { FaRegLightbulb } from "react-icons/fa";
 import { LuSend } from "react-icons/lu";
-import { MdOutlineContacts } from "react-icons/md";
 import { projects } from "../data/data";
 import { skills } from "../data/data";
 import { socials } from "../data/data";
@@ -23,7 +19,7 @@ import { jobs } from "../data/data";
 import { Educations } from "../data/data";
 import { WhatIDo } from "../data/data";
 import { useForm, ValidationError } from "@formspree/react";
-
+import CountUp from "../components/CountUp";
 const Portfolio = () => {
   const [isDark, setIsDark] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -233,7 +229,7 @@ const Portfolio = () => {
                   } p-5 rounded-xl text-center`}
                 >
                   <div className="text-2xl text-green-500 font-bold mb-1">
-                    {stat.value}
+                    <CountUp from={0} to={stat.value} duration={1} />+
                   </div>
                   <div className="text-xs text-gray-400">{stat.label}</div>
                 </div>

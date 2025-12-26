@@ -205,10 +205,10 @@ export const skills = [
 ];
 
 export const stats = [
-  { value: "12+", label: "Developed Projects" },
-  { value: "2+", label: "Years of Experience" },
-  { value: "4+", label: "Certificates" },
-  { value: "15+", label: "Technologies" },
+  { value: 12, label: "Developed Projects" },
+  { value: 2, label: "Years of Experience" },
+  { value: 4, label: "Certificates" },
+  { value: 15, label: "Technologies" },
 ];
 
 export const jobs = [
