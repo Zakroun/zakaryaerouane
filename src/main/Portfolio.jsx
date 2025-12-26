@@ -20,6 +20,7 @@ import { Educations } from "../data/data";
 import { WhatIDo } from "../data/data";
 import { useForm, ValidationError } from "@formspree/react";
 import CountUp from "../components/CountUp";
+
 const Portfolio = () => {
   const [isDark, setIsDark] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -80,6 +81,7 @@ const Portfolio = () => {
   });
 
   const [visibleProjectsCount, setVisibleProjectsCount] = useState(4);
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   useEffect(() => {
     if (formState.succeeded) {
@@ -98,25 +100,64 @@ const Portfolio = () => {
   }, [formState.succeeded]);
 
   const handleLoadMore = () => {
-    // Show all projects when clicking "Load More"
     setVisibleProjectsCount(projects.length);
+    setShowAllProjects(true);
+  };
+
+  const handleShowLess = () => {
+    setVisibleProjectsCount(4);
+    setShowAllProjects(false);
   };
 
   const visibleProjects = projects.slice(0, visibleProjectsCount);
 
   return (
     <div
-      className={`min-h-screen ${
+      className={`min-h-screen relative ${
         isDark ? "bg-black text-white" : "bg-gray-50 text-gray-900"
-      } transition-colors duration-300`}
+      } transition-colors duration-300 overflow-hidden`}
     >
+      {/* Animated Background */}
+      <div className="fixed inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0">
+          {/* Gradient Orbs */}
+          <div className="absolute top-1/4 -left-20 w-72 h-72 bg-green-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-green-400/5 rounded-full blur-3xl animate-pulse delay-500"></div>
+          
+          {/* Grid Pattern */}
+          <div className={`absolute inset-0 opacity-5 ${
+            isDark ? 'bg-[linear-gradient(90deg,#000_1px,transparent_1px),linear-gradient(#000_1px,transparent_1px)]' 
+                   : 'bg-[linear-gradient(90deg,#fff_1px,transparent_1px),linear-gradient(#fff_1px,transparent_1px)]'
+          } bg-[size:40px_40px]`}></div>
+          
+          {/* Animated Particles */}
+          <div className="absolute inset-0">
+            {[...Array(20)].map((_, i) => (
+              <div
+                key={i}
+                className={`absolute w-1 h-1 ${
+                  isDark ? 'bg-green-500/30' : 'bg-green-600/20'
+                } rounded-full`}
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animation: `float 15s infinite linear ${i * 0.5}s`,
+                }}
+              ></div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Theme Toggle Button */}
       <button
         onClick={() => setIsDark(!isDark)}
         className={`fixed top-3 right-3 z-50 p-3 rounded-full ${
           isDark
             ? "bg-zinc-800 hover:bg-zinc-700"
             : "bg-white hover:bg-gray-100"
-        } shadow-lg transition-all`}
+        } shadow-lg transition-all backdrop-blur-sm`}
       >
         {isDark ? (
           <Sun className="w-5 h-5 text-yellow-400" />
@@ -125,24 +166,28 @@ const Portfolio = () => {
         )}
       </button>
 
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex flex-col lg:flex-row relative z-10">
+        {/* Sidebar */}
         <div
           className={`lg:fixed lg:left-0 lg:top-0 lg:h-screen ${
-            isDark ? "bg-zinc-900" : "bg-white"
-          } lg:w-80 p-6 lg:overflow-y-auto`}
+            isDark ? "bg-zinc-900/80" : "bg-white/80"
+          } lg:w-80 p-6 lg:overflow-y-auto backdrop-blur-sm border-r ${
+            isDark ? 'border-zinc-800' : 'border-gray-200'
+          }`}
         >
           {/* Profile Card */}
           <div className="rounded-2xl text-center p-6 mb-6">
             <div className="flex justify-center">
-              <img loading="lazy"
+              <img 
+                loading="lazy"
                 src="images/zakaryaerouane.jpg"
                 alt="Zakaryae Rouane"
-                className="w-60 h-64 object-cover rounded-xl mb-4"
+                className="w-60 h-64 object-cover rounded-xl mb-4 border-4 border-green-500/20"
               />
             </div>
             <div className="flex justify-center">
               <div className="flex items-center gap-2 mb-2">
-                <RiRadioButtonLine size={15} className="text-green-500" />
+                <RiRadioButtonLine size={15} className="text-green-500 animate-pulse" />
                 <span className="text-xs text-gray-400">
                   Available for work
                 </span>
@@ -157,15 +202,15 @@ const Portfolio = () => {
               onClick={() => setShowPDF(true)}
               className={`flex-1 ${
                 isDark
-                  ? "bg-zinc-800 hover:bg-zinc-700"
-                  : "bg-gray-200 hover:bg-gray-300"
-              } py-3 rounded-xl text-sm font-medium transition-colors`}
+                  ? "bg-zinc-800/50 hover:bg-zinc-700/50"
+                  : "bg-gray-200/50 hover:bg-gray-300/50"
+              } py-3 rounded-xl text-sm font-medium transition-colors backdrop-blur-sm`}
             >
               <Download className="w-4 h-4 inline mr-2" />
               Download CV
             </button>
-            <button className="flex-1 bg-gradient-to-r from-green-400 to-emerald-500 hover:from-green-500 hover:to-emerald-600 text-black py-3 rounded-xl text-sm font-bold transition-all">
-              <a href="https://wa.me/212618382385" target="_blank">
+            <button className="flex-1 bg-gradient-to-r from-green-400 to-emerald-500 hover:from-green-500 hover:to-emerald-600 text-black py-3 rounded-xl text-sm font-bold transition-all shadow-lg shadow-green-500/20">
+              <a href="https://wa.me/212618382385" target="_blank" rel="noopener noreferrer">
                 <LuSend className="w-4 h-4 inline mr-2" />
                 Contact Me
               </a>
@@ -179,11 +224,11 @@ const Portfolio = () => {
                 key={i}
                 className={`w-10 h-10 ${
                   isDark
-                    ? "bg-zinc-800 hover:bg-zinc-700"
-                    : "bg-gray-200 hover:bg-gray-300"
-                } rounded-lg flex items-center justify-center transition-colors`}
+                    ? "bg-zinc-800/50 hover:bg-zinc-700/50"
+                    : "bg-gray-200/50 hover:bg-gray-300/50"
+                } rounded-lg flex items-center justify-center transition-colors backdrop-blur-sm hover:scale-110 hover:shadow-lg hover:shadow-green-500/20`}
               >
-                <a href={social.link} target="_blank">
+                <a href={social.link} target="_blank" rel="noopener noreferrer">
                   {social.icon}
                 </a>
               </button>
@@ -196,7 +241,7 @@ const Portfolio = () => {
           {/* Hero Section */}
           <div className="mb-12">
             <div className="flex items-center gap-2 mb-4">
-              <img loading="lazy" src="images/hand1.png" alt="hand" className="w-6" />
+              <img loading="lazy" src="images/hand1.png" alt="hand" className="w-6 animate-bounce" />
               <span className="text-sm text-gray-400">Say Hello</span>
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold mb-8">
@@ -209,7 +254,9 @@ const Portfolio = () => {
             <p
               className={`${
                 isDark ? "text-gray-400" : "text-gray-600"
-              } max-w-2xl mb-8`}
+              } max-w-2xl mb-8 backdrop-blur-sm p-4 rounded-xl ${
+                isDark ? 'bg-black/30' : 'bg-white/30'
+              }`}
             >
               My name is Zakaryae Rouane, a 20-year-old Full-Stack Web Developer
               from Meknès. I handle frontend, backend, and UI design, using a
@@ -225,8 +272,8 @@ const Portfolio = () => {
                 <div
                   key={i}
                   className={`${
-                    isDark ? "bg-zinc-900" : "bg-white"
-                  } p-5 rounded-xl text-center`}
+                    isDark ? "bg-zinc-900/50" : "bg-white/50"
+                  } p-5 rounded-xl text-center backdrop-blur-sm hover:scale-105 transition-transform duration-300 hover:shadow-lg hover:shadow-green-500/10`}
                 >
                   <div className="text-2xl text-green-500 font-bold mb-1">
                     <CountUp from={0} to={stat.value} duration={1} />+
@@ -248,8 +295,8 @@ const Portfolio = () => {
                 <div
                   key={i}
                   className={`${
-                    isDark ? "bg-zinc-900" : "bg-white"
-                  } p-6 rounded-xl`}
+                    isDark ? "bg-zinc-900/50" : "bg-white/50"
+                  } p-6 rounded-xl backdrop-blur-sm hover:shadow-lg hover:shadow-green-500/10 transition-all duration-300`}
                 >
                   <div className="flex justify-between items-start mb-3">
                     <div>
@@ -273,7 +320,7 @@ const Portfolio = () => {
           {/* Projects Section */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-              <img loading="lazy" src="/images/rocket.png" className="w-6 h-6" />
+              <img loading="lazy" src="/images/rocket.png" className="w-6 h-6 animate-pulse" />
               Projects
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -281,8 +328,8 @@ const Portfolio = () => {
                 <div
                   key={i}
                   className={`${
-                    isDark ? "bg-zinc-900" : "bg-white"
-                  } rounded-xl overflow-hidden group cursor-pointer hover:scale-105 transition-transform`}
+                    isDark ? "bg-zinc-900/50" : "bg-white/50"
+                  } rounded-xl overflow-hidden group cursor-pointer backdrop-blur-sm hover:scale-[1.02] transition-transform duration-300`}
                 >
                   <div
                     className={`${
@@ -292,14 +339,16 @@ const Portfolio = () => {
                       project.color.includes("cyan")
                         ? "text-white"
                         : "text-gray-800"
-                    }`}
+                    } relative overflow-hidden`}
                   >
-                    <img loading="lazy"
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                    <img
+                      loading="lazy"
                       src={project.image}
                       alt={project.name}
                       className={`w-${
                         project.name === "Homixstore" ? "[350px]" : "[340px]"
-                      } mt-6`}
+                      } mt-6 relative z-10 transform group-hover:scale-110 transition-transform duration-500`}
                     />
                   </div>
                   <div className="p-4">
@@ -310,26 +359,41 @@ const Portfolio = () => {
                           {project.category} • {project.pages}
                         </p>
                       </div>
-                      <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-green-500 transition-colors" />
+                      <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-green-500 group-hover:scale-110 transition-all duration-300" />
                     </div>
                   </div>
                 </div>
               ))}
             </div>
 
-            {projects.length > visibleProjectsCount && (
-              <button
-                onClick={handleLoadMore}
-                className={`mt-6 w-full ${
-                  isDark
-                    ? "bg-zinc-900 hover:bg-zinc-800"
-                    : "bg-white hover:bg-gray-100"
-                } py-3 rounded-xl font-medium transition-colors`}
-              >
-                Load More ({projects.length - visibleProjectsCount} more
-                projects)
-              </button>
-            )}
+            {/* Load More / Show Less Buttons */}
+            <div className="mt-6 w-full flex justify-center gap-4">
+              {!showAllProjects && projects.length > visibleProjectsCount && (
+                <button
+                  onClick={handleLoadMore}
+                  className={`px-6 py-3 ${
+                    isDark
+                      ? "bg-zinc-900/50 hover:bg-zinc-800/50"
+                      : "bg-white/50 hover:bg-gray-100/50"
+                  } rounded-xl w-full font-medium transition-all backdrop-blur-sm`}
+                >
+                  Load More ({projects.length - visibleProjectsCount} more projects)
+                </button>
+              )}
+              
+              {showAllProjects && (
+                <button
+                  onClick={handleShowLess}
+                  className={`px-6 py-3 ${
+                    isDark
+                      ? "bg-zinc-900/50 hover:bg-zinc-800/50"
+                      : "bg-white/50 hover:bg-gray-100/50"
+                  } rounded-xl w-full font-medium transition-all backdrop-blur-sm`}
+                >
+                  Show Less
+                </button>
+              )}
+            </div>
           </section>
 
           {/* Education Section */}
@@ -343,8 +407,8 @@ const Portfolio = () => {
                 <div
                   key={i}
                   className={`${
-                    isDark ? "bg-zinc-900" : "bg-white"
-                  } p-6 rounded-xl`}
+                    isDark ? "bg-zinc-900/50" : "bg-white/50"
+                  } p-6 rounded-xl backdrop-blur-sm hover:shadow-lg hover:shadow-green-500/10 transition-all duration-300`}
                 >
                   <div className="flex justify-between items-start mb-3">
                     <div>
@@ -361,7 +425,7 @@ const Portfolio = () => {
           {/* WhatIDo */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-              <img loading="lazy" src="/images/light.png" className="w-6 h-6" /> What I Do
+              <img loading="lazy" src="/images/light.png" className="w-6 h-6 animate-pulse" /> What I Do
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {WhatIDo.map((item, index) => {
@@ -371,14 +435,16 @@ const Portfolio = () => {
                     key={index}
                     className={`flex items-start gap-4 p-5 ${
                       isDark
-                        ? "bg-zinc-900 text-white border-zinc-800"
-                        : "bg-white text-black border-gray-100"
-                    } rounded-xl border  hover:border-green-500 transition-all shadow-sm hover:shadow-green-500/20`}
+                        ? "bg-zinc-900/50 text-white"
+                        : "bg-white/50 text-black"
+                    } rounded-xl backdrop-blur-sm border ${
+                      isDark ? 'border-zinc-800' : 'border-gray-200'
+                    } hover:border-green-500  transition-all duration-300`}
                   >
                     <div
                       className={`p-3 ${
-                        isDark ? "bg-zinc-800" : "bg-gray-100"
-                      } rounded-lg`}
+                        isDark ? "bg-zinc-800/50" : "bg-gray-100/50"
+                      } rounded-lg backdrop-blur-sm`}
                     >
                       <Icon className="w-7 h-7 text-green-500" />
                     </div>
@@ -401,11 +467,11 @@ const Portfolio = () => {
                 <div
                   key={i}
                   className={`${
-                    isDark ? "bg-zinc-900" : "bg-white"
-                  } p-4 rounded-xl flex items-center gap-3 hover:scale-105 transition-transform cursor-pointer`}
+                    isDark ? "bg-zinc-900/50" : "bg-white/50"
+                  } p-4 rounded-xl flex items-center gap-3 backdrop-blur-sm hover:scale-105 transition-transform duration-300 cursor-pointer hover:shadow-lg hover:shadow-green-500/10`}
                 >
                   <div
-                    className={`w-10 h-10 bg-gradient-to-br ${skill.color} rounded-lg flex items-center justify-center text-xl text-white`}
+                    className={`w-10 h-10 bg-gradient-to-br ${skill.color} rounded-lg flex items-center justify-center text-xl text-white shadow-lg`}
                   >
                     {skill.icon}
                   </div>
@@ -420,10 +486,12 @@ const Portfolio = () => {
 
           {/* Contact Section */}
           <section
-            className={`${isDark ? "bg-zinc-900" : "bg-white"} p-8 rounded-2xl`}
+            className={`${isDark ? "bg-zinc-900/50" : "bg-white/50"} p-8 rounded-2xl backdrop-blur-sm border ${
+              isDark ? 'border-zinc-800' : 'border-gray-200'
+            }`}
           >
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-              <img loading="lazy" src="/images/inbox.png" className="w-6 h-6" /> Let's Get in Touch!
+              <img loading="lazy" src="/images/inbox.png" className="w-6 h-6 animate-bounce" /> Let's Get in Touch!
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="space-y-4">
@@ -451,7 +519,7 @@ const Portfolio = () => {
               </div>
               <div className="space-y-4">
                 {showSuccess && (
-                  <p className="text-green-500 text-center mb-1 rounded-xl font-semibold">
+                  <p className="text-green-500 text-center mb-1 rounded-xl font-semibold animate-pulse">
                     Message sent successfully!
                   </p>
                 )}
@@ -465,8 +533,10 @@ const Portfolio = () => {
                       setFormdata({ ...formdata, fullname: e.target.value })
                     }
                     className={`w-full ${
-                      isDark ? "bg-black" : "bg-gray-100"
-                    } px-4 py-3 mb-2 rounded-xl outline-none`}
+                      isDark ? "bg-black/30" : "bg-gray-100/50"
+                    } px-4 py-3 mb-2 rounded-xl outline-none backdrop-blur-sm border ${
+                      isDark ? 'border-zinc-800' : 'border-gray-200'
+                    } focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition-all`}
                     required
                   />
 
@@ -480,8 +550,10 @@ const Portfolio = () => {
                     }
                     placeholder="Email"
                     className={`w-full ${
-                      isDark ? "bg-black" : "bg-gray-100"
-                    } px-4 py-3 mb-2 rounded-xl outline-none`}
+                      isDark ? "bg-black/30" : "bg-gray-100/50"
+                    } px-4 py-3 mb-2 rounded-xl outline-none backdrop-blur-sm border ${
+                      isDark ? 'border-zinc-800' : 'border-gray-200'
+                    } focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition-all`}
                     required
                   />
                   <ValidationError
@@ -499,8 +571,10 @@ const Portfolio = () => {
                     }
                     name="phone"
                     className={`w-full ${
-                      isDark ? "bg-black" : "bg-gray-100"
-                    } px-4 py-3 mb-2 rounded-xl outline-none`}
+                      isDark ? "bg-black/30" : "bg-gray-100/50"
+                    } px-4 py-3 mb-2 rounded-xl outline-none backdrop-blur-sm border ${
+                      isDark ? 'border-zinc-800' : 'border-gray-200'
+                    } focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition-all`}
                   />
 
                   <textarea
@@ -513,8 +587,10 @@ const Portfolio = () => {
                     }
                     rows="4"
                     className={`w-full ${
-                      isDark ? "bg-black" : "bg-gray-100"
-                    } px-4 py-3 mb-2 rounded-xl outline-none resize-none`}
+                      isDark ? "bg-black/30" : "bg-gray-100/50"
+                    } px-4 py-3 mb-2 rounded-xl outline-none resize-none backdrop-blur-sm border ${
+                      isDark ? 'border-zinc-800' : 'border-gray-200'
+                    } focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition-all`}
                     required
                   ></textarea>
                   <ValidationError
@@ -528,7 +604,8 @@ const Portfolio = () => {
                     disabled={formState.submitting}
                     className="w-full bg-gradient-to-r from-green-400 to-emerald-500
                     hover:from-green-500 hover:to-emerald-600 text-black 
-                    py-3 rounded-xl font-bold transition-all"
+                    py-3 rounded-xl font-bold transition-all shadow-lg shadow-green-500/20
+                    hover:shadow-xl hover:shadow-green-500/30 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {formState.submitting ? "Sending..." : "Send Message"}
                   </button>
@@ -539,28 +616,31 @@ const Portfolio = () => {
 
           {/* Footer */}
           <footer
-            className={`mt-12 text-center text-sm text-gray-400 p-8 rounded-2xl ${
-              isDark ? "bg-zinc-900" : "bg-gray-100"
+            className={`mt-12 text-center text-sm text-gray-400 p-8 rounded-2xl backdrop-blur-sm border ${
+              isDark ? "bg-zinc-900/50 border-zinc-800" : "bg-gray-100/50 border-gray-200"
             }`}
           >
-            <p>Created by zakaryae rouane 💚 </p>
+            <p className="animate-pulse">Created by zakaryae rouane 💚 </p>
           </footer>
         </div>
       </div>
 
+      {/* PDF Modal */}
       {showPDF && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[999] p-4">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[999] p-4 animate-fadeIn">
           <div
             className={`w-full max-w-3xl ${
-              isDark ? "bg-zinc-900" : "bg-white"
-            } rounded-2xl p-5 shadow-xl`}
+              isDark ? "bg-zinc-900/80" : "bg-white/80"
+            } rounded-2xl p-5 shadow-xl backdrop-blur-sm border ${
+              isDark ? 'border-zinc-800' : 'border-gray-200'
+            }`}
           >
             {/* Header */}
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-bold">My CV / Resume</h2>
               <button
                 onClick={() => setShowPDF(false)}
-                className="text-gray-400 hover:text-green-500 text-2xl font-bold"
+                className="text-gray-400 hover:text-green-500 text-2xl font-bold transition-colors"
               >
                 ✕
               </button>
@@ -570,13 +650,14 @@ const Portfolio = () => {
             <iframe
               src="pdf/zakaryaerouane(eng).pdf"
               className="w-full h-[400px] rounded-xl border"
+              title="CV PDF Viewer"
             ></iframe>
 
             {/* Buttons */}
             <div className="flex float-end mt-5">
               <button
                 onClick={() => setShowPDF(false)}
-                className="px-5 py-2 mr-2 rounded-xl bg-gray-300 text-black hover:bg-gray-400"
+                className="px-5 py-2 mr-2 rounded-xl bg-gray-300/50 text-black hover:bg-gray-400/50 backdrop-blur-sm transition-colors"
               >
                 Close
               </button>
@@ -584,7 +665,7 @@ const Portfolio = () => {
               <a
                 href="pdf/ZakaryaeRouaneCV(eng).pdf"
                 download
-                className="px-5 py-2 rounded-xl bg-green-500 text-black font-bold hover:bg-green-600"
+                className="px-5 py-2 rounded-xl bg-green-500 text-black font-bold hover:bg-green-600 transition-colors shadow-lg shadow-green-500/20"
               >
                 Download
               </a>
@@ -592,6 +673,37 @@ const Portfolio = () => {
           </div>
         </div>
       )}
+
+      {/* Add CSS animations */}
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0) translateX(0);
+          }
+          25% {
+            transform: translateY(-20px) translateX(10px);
+          }
+          50% {
+            transform: translateY(0) translateX(20px);
+          }
+          75% {
+            transform: translateY(20px) translateX(10px);
+          }
+        }
+        
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-in-out;
+        }
+      `}</style>
     </div>
   );
 };
