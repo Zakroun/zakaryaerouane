@@ -158,7 +158,7 @@ export const projects = [
         pages: "+12 Pages",
         path: "https://avex-navy.vercel.app/",
         color: "bg-[#cac9c2]",
-        stack: [skills[3], skills[5], skills[8], skills[10], skills[11], skills[12]],
+        stack: [skills[3] ,skills[1], skills[8], skills[10], skills[11], skills[14]],
         desc: "A complete e-commerce platform for fashion products, product management, shopping cart.",
     },
     {
@@ -168,7 +168,7 @@ export const projects = [
         pages: "+12 Pages",
         path: "https://nova-reach-azure.vercel.app/",
         color: "bg-[#c13f51]",
-        stack: [skills[3], skills[5], skills[8], skills[10], skills[11], skills[12]],
+        stack: [skills[3] ,skills[1], skills[8], skills[10], skills[11], skills[14]],
         desc: "A marketing agency website showcasing services, portfolio, and client testimonials with a modern design.",
     },
     {
@@ -178,7 +178,7 @@ export const projects = [
         pages: "+12 Pages",
         path: "https://flow-board-ten.vercel.app/",
         color: "bg-[#1c453f]",
-        stack: [skills[3], skills[5], skills[8], skills[10], skills[11], skills[12]],
+        stack: [skills[3] ,skills[1], skills[8], skills[10], skills[11], skills[14]],
         desc: "A complete platform to manage projects, tasks, and collaborate with team members.",
     },
     {
@@ -188,7 +188,7 @@ export const projects = [
         pages: "+12 Pages",
         path: "https://webverse-chi.vercel.app/",
         color: "bg-black",
-        stack: [skills[3], skills[5], skills[8], skills[10], skills[11], skills[12]],
+        stack: [skills[3] ,skills[1], skills[8], skills[10], skills[11], skills[14]],
         desc: "A modern digital agency website designed to showcase services, projects, and brand identity with a clean UI, smooth navigation, and responsive layout for businesses seeking a strong online presence."
     },
     {
@@ -198,7 +198,7 @@ export const projects = [
         pages: "+12 Pages",
         path: "https://restova.vercel.app/",
         color: "bg-[#49392f]",
-        stack: [skills[3], skills[5], skills[8], skills[10], skills[11], skills[12]],
+        stack: [skills[0] ,skills[1], skills[9], skills[10], skills[11], skills[14]],
         desc: "A restaurant reservation platform that allows customers to browse menus, book tables, and manage reservations online while providing restaurants with an organized system to handle bookings efficiently."
     },
     {
@@ -208,7 +208,7 @@ export const projects = [
         pages: "+12 Pages",
         path: "https://beauty-salon-one-blue.vercel.app/",
         color: "bg-[#efa6d1]",
-        stack: [skills[3], skills[5], skills[8], skills[10], skills[11], skills[12]],
+        stack: [skills[0] ,skills[1], skills[9], skills[10], skills[11], skills[14]],
         desc: "An online booking system for beauty salons where clients can schedule appointments, explore services, and manage bookings easily through a responsive and user-friendly interface."
     },
     // old projects
