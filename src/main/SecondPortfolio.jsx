@@ -14,8 +14,8 @@ import { Educations } from "../data/myinfo.jsx";
 import { WhatIDo } from "../data/myinfo.jsx";
 import { useForm, ValidationError } from "@formspree/react";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
-import CountUp from "../components/CountUp";
-const Portfolio = () => {
+import CountUp from "../components/CountUp.jsx";
+const SecondPortfolio = () => {
     const [isDark, setIsDark] = useState(() => {
         const savedTheme = localStorage.getItem("theme");
         if (savedTheme) return savedTheme === "dark";
@@ -73,7 +73,7 @@ const Portfolio = () => {
         message: "",
     });
 
-    const [visibleProjectsCount, setVisibleProjectsCount] = useState(4);
+    const [visibleProjectsCount, setVisibleProjectsCount] = useState(6);
     const [showAllProjects, setShowAllProjects] = useState(false);
 
     useEffect(() => {
@@ -726,4 +726,4 @@ const Portfolio = () => {
     );
 };
 
-export default Portfolio;
+export default SecondPortfolio;

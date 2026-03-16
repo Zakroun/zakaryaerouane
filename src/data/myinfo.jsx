@@ -150,36 +150,15 @@ export const skills = [
     },
 ];
 export const projects = [
-    // new projects
     {
         name: "Avex",
-        category: "fashion E-Commerce",
+        category: "Fashion E-Commerce",
         image: "images/avex.png",
         pages: "+12 Pages",
         path: "https://avex-navy.vercel.app/",
         color: "bg-[#cac9c2]",
-        stack: [skills[3] ,skills[1], skills[8], skills[10], skills[11], skills[14]],
-        desc: "A complete e-commerce platform for fashion products, product management, shopping cart.",
-    },
-    {
-        name: "NovaReach Agency",
-        category: "Marketing Agency Website",
-        image: "images/novareach.png",
-        pages: "+12 Pages",
-        path: "https://nova-reach-azure.vercel.app/",
-        color: "bg-[#c13f51]",
-        stack: [skills[3] ,skills[1], skills[8], skills[10], skills[11], skills[14]],
-        desc: "A marketing agency website showcasing services, portfolio, and client testimonials with a modern design.",
-    },
-    {
-        name: "FlowBoard",
-        category: "Project Management Tool",
-        image: "images/flowboard.png",
-        pages: "+12 Pages",
-        path: "https://flow-board-ten.vercel.app/",
-        color: "bg-[#1c453f]",
-        stack: [skills[3] ,skills[1], skills[8], skills[10], skills[11], skills[14]],
-        desc: "A complete platform to manage projects, tasks, and collaborate with team members.",
+        stack: [skills[3], skills[1], skills[8], skills[10], skills[11], skills[14]],
+        desc: "A complete fashion e-commerce platform with product management, shopping cart, and secure checkout."
     },
     {
         name: "WebVerse Agency",
@@ -188,8 +167,48 @@ export const projects = [
         pages: "+12 Pages",
         path: "https://webverse-chi.vercel.app/",
         color: "bg-black",
-        stack: [skills[3] ,skills[1], skills[8], skills[10], skills[11], skills[14]],
-        desc: "A modern digital agency website designed to showcase services, projects, and brand identity with a clean UI, smooth navigation, and responsive layout for businesses seeking a strong online presence."
+        stack: [skills[3], skills[1], skills[8], skills[10], skills[11], skills[14]],
+        desc: "Modern digital agency website showcasing services, projects, and brand identity with clean UI and responsive design."
+    },
+    {
+        name: "Proofly",
+        category: "SaaS / Startup Idea Validation",
+        image: "images/proofly.png",
+        pages: "+12 Pages",
+        path: "https://flow-board-ten.vercel.app/",
+        color: "bg-[#2d2254]",
+        stack: [skills[3], skills[1], skills[8], skills[10], skills[11], skills[14]],
+        desc: "SaaS platform helping entrepreneurs validate startup ideas through landing pages, audience interest tracking, and market analytics."
+    },
+    {
+        name: "FlowBoard",
+        category: "Project Management Tool",
+        image: "images/flowboard.png",
+        pages: "+12 Pages",
+        path: "https://flow-board-ten.vercel.app/",
+        color: "bg-[#1c453f]",
+        stack: [skills[3], skills[1], skills[8], skills[10], skills[11], skills[14]],
+        desc: "Complete project management platform for task organization, team collaboration, and workflow tracking."
+    },
+    {
+        name: "Unicomnova AI",
+        category: "AI Chatbot",
+        image: "images/unicomnova.png",
+        pages: "+7 Pages",
+        color: "bg-gray-100",
+        path: "https://unicomnova-ai.vercel.app/",
+        stack: [skills[5], skills[8], skills[10], skills[11], skills[16], skills[12]],
+        desc: "AI-powered chatbot platform for customer support with admin dashboard and conversation analytics."
+    },
+    {
+        name: "NovaReach Agency",
+        category: "Marketing Agency Website",
+        image: "images/novareach.png",
+        pages: "+12 Pages",
+        path: "https://nova-reach-azure.vercel.app/",
+        color: "bg-[#c13f51]",
+        stack: [skills[3], skills[1], skills[8], skills[10], skills[11], skills[14]],
+        desc: "Marketing agency website featuring services showcase, portfolio, client testimonials, and modern design."
     },
     {
         name: "Restova",
@@ -198,8 +217,8 @@ export const projects = [
         pages: "+12 Pages",
         path: "https://restova.vercel.app/",
         color: "bg-[#49392f]",
-        stack: [skills[0] ,skills[1], skills[9], skills[10], skills[11], skills[14]],
-        desc: "A restaurant reservation platform that allows customers to browse menus, book tables, and manage reservations online while providing restaurants with an organized system to handle bookings efficiently."
+        stack: [skills[0], skills[1], skills[9], skills[10], skills[11], skills[14]],
+        desc: "Restaurant reservation platform for browsing menus, booking tables, and managing reservations efficiently."
     },
     {
         name: "Beauty Salon",
@@ -208,10 +227,9 @@ export const projects = [
         pages: "+12 Pages",
         path: "https://beauty-salon-one-blue.vercel.app/",
         color: "bg-[#efa6d1]",
-        stack: [skills[0] ,skills[1], skills[9], skills[10], skills[11], skills[14]],
-        desc: "An online booking system for beauty salons where clients can schedule appointments, explore services, and manage bookings easily through a responsive and user-friendly interface."
+        stack: [skills[0], skills[1], skills[9], skills[10], skills[11], skills[14]],
+        desc: "Online booking system for beauty salons with appointment scheduling, service exploration, and booking management."
     },
-    // old projects
     {
         name: "HomeNest",
         category: "Rental Platform",
@@ -220,7 +238,7 @@ export const projects = [
         path: "https://homenest-omega.vercel.app/",
         color: "bg-blue-800",
         stack: [skills[3], skills[5], skills[8], skills[10], skills[11], skills[12]],
-        desc: "A complete platform to sell, buy, and rent real estate properties, with admin panel and user dashboard.",
+        desc: "Real estate platform for selling, buying, and renting properties with admin panel and user dashboard."
     },
     {
         name: "Tripplanner",
@@ -230,7 +248,7 @@ export const projects = [
         path: "https://trip-planner-xi-pied.vercel.app/",
         color: "bg-blue-200",
         stack: [skills[3], skills[5], skills[8], skills[10], skills[11], skills[12]],
-        desc: "A web application for planning trips with personalized itineraries, booking management, and interactive dashboard.",
+        desc: "Travel planning application with personalized itineraries, booking management, and interactive dashboard."
     },
     {
         name: "GoalPass",
@@ -240,7 +258,7 @@ export const projects = [
         path: "https://goalpass.vercel.app/",
         color: "bg-green-800",
         stack: [skills[3], skills[5], skills[8], skills[10], skills[11], skills[12]],
-        desc: "Platform to purchase match tickets, featuring authentication, payment, and admin & user dashboards.",
+        desc: "Match ticket purchasing platform with authentication, payment integration, and admin/user dashboards."
     },
     {
         name: "3otor",
@@ -250,7 +268,7 @@ export const projects = [
         color: "bg-amber-600",
         path: "https://3otor-perfums.vercel.app/",
         stack: [skills[3], skills[5], skills[8], skills[10], skills[11], skills[12]],
-        desc: "Online store specialized in selling perfumes with stock management, cart, orders, and admin dashboard.",
+        desc: "Specialized perfume e-commerce store with stock management, shopping cart, orders, and admin dashboard."
     },
     {
         name: "Edulead",
@@ -260,7 +278,7 @@ export const projects = [
         path: "https://edulead-alpha.vercel.app/",
         color: "bg-blue-200",
         stack: [skills[3], skills[5], skills[8], skills[10], skills[11], skills[12]],
-        desc: "An online education platform with courses, quizzes, and a management dashboard for students and instructors.",
+        desc: "Online education platform offering courses, quizzes, and management dashboards for students and instructors."
     },
     {
         name: "AFCON 2025",
@@ -270,24 +288,7 @@ export const projects = [
         path: "https://afcon-2025.vercel.app/",
         color: "bg-[#800000]",
         stack: [skills[3], skills[5], skills[8], skills[10], skills[11], skills[12]],
-        desc: "A comprehensive web app for AFCON 2025, featuring match schedules, cities, groups, national teams, and live scores.",
-    }
-    ,
-    {
-        name: "Unicomnova AI",
-        category: "AI Chatbot",
-        image: "images/unicomnova.png",
-        pages: "+7 Pages",
-        color: "bg-gray-100",
-        stack: [
-            skills[5],
-            skills[8],
-            skills[10],
-            skills[11],
-            skills[16],
-            skills[12],
-        ],
-        desc: "AI-powered chatbot platform for customer support, with admin dashboard and analytics.",
+        desc: "Comprehensive web app for AFCON 2025 featuring match schedules, cities, groups, teams, and live scores."
     },
     {
         name: "Homixstore",
@@ -295,8 +296,9 @@ export const projects = [
         image: "images/homixstore.png",
         pages: "+15 Pages",
         color: "bg-orange-500",
+        path: "https://homixstore.vercel.app/",
         stack: [skills[3], skills[5], skills[8], skills[10], skills[11], skills[12]],
-        desc: "Complete e-commerce store for various products, including shopping cart, payment, and admin panel.",
+        desc: "Complete e-commerce store with product catalog, shopping cart, payment processing, and admin panel."
     },
     {
         name: "DocsAura",
@@ -304,8 +306,9 @@ export const projects = [
         image: "images/docsaura.png",
         pages: "+20 Pages",
         color: "bg-cyan-200",
+        path: "https://docsaura.vercel.app/",
         stack: [skills[3], skills[5], skills[8], skills[10], skills[11], skills[12]],
-        desc: "Healthcare platform to book appointments with doctors, manage schedules, and access patient dashboards.",
+        desc: "Healthcare platform for booking doctor appointments, managing schedules, and accessing patient dashboards."
     },
 ];
 
@@ -329,10 +332,10 @@ export const socials = [
 ];
 
 export const stats = [
-    { value: 12, label: "Developed Projects" },
+    { value: 16, label: "Developed Projects" },
     { value: 2, label: "Years of Experience" },
     { value: 4, label: "Certificates" },
-    { value: 15, label: "Technologies" },
+    { value: 17, label: "Technologies" },
 ];
 
 export const jobs = [
