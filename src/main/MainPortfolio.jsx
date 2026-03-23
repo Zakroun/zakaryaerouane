@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef, useCallback } from "react";
-import { Sun, Download, Mail, Phone, MapPin, ArrowUpRight, Menu, X } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { Sun, Download, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import { FaMoon } from "react-icons/fa";
 import { RiRadioButtonLine } from "react-icons/ri";
 import { FaRegLightbulb } from "react-icons/fa";
@@ -70,7 +70,6 @@ const MainPortfolio = () => {
         return saved ? saved === "dark" : true;
     });
 
-    const [sidebarOpen, setSidebarOpen] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
     const [visibleCount, setVisibleCount] = useState(6);
@@ -125,29 +124,8 @@ const MainPortfolio = () => {
                 }
             </button>
 
-            <button
-                className="pf-hamburger"
-                onClick={() => setSidebarOpen((o) => !o)}
-                aria-label="Toggle sidebar"
-            >
-                {sidebarOpen
-                    ? <X style={{ width: 20, height: 20 }} />
-                    : <Menu style={{ width: 20, height: 20 }} />
-                }
-            </button>
-
-            {sidebarOpen && (
-                <div
-                    onClick={() => setSidebarOpen(false)}
-                    style={{
-                        position: "fixed", inset: 0, zIndex: 99,
-                        background: "rgba(0,0,0,0.5)", backdropFilter: "blur(4px)",
-                    }}
-                />
-            )}
-
-            <div className="pf" style={{ position: "relative", zIndex: 1 }}>
-                <aside className={`pf-sidebar${sidebarOpen ? " pf-open" : ""}`}>
+            <div className="pf">
+                <aside className="pf-sidebar">
                     <div className="pf-profile">
                         <div className="pf-avatar-ring">
                             <img
@@ -161,8 +139,6 @@ const MainPortfolio = () => {
                             <span className="pf-status-dot" />
                             Available for work
                         </div>
-                        {/* <h2 className="pf-name">Zakaryae Rouane</h2>
-                        <p className="pf-role">Full Stack Developer</p> */}
                     </div>
 
                     <div className="pf-actions">

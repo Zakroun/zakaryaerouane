@@ -63,13 +63,15 @@ body {
     display: flex;
     min-height: 100vh;
     position: relative;
+    flex-direction: row;
 }
 
 .pf-sidebar {
     width: var(--sidebar-w);
     flex-shrink: 0;
-    position: fixed;
-    inset: 0 auto 0 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
     background: var(--bg-surface);
     border-right: 1px solid var(--border);
     display: flex;
@@ -78,7 +80,7 @@ body {
     z-index: 100;
     padding: 2rem 1.5rem;
     gap: 1.5rem;
-    transition: background var(--t) var(--ease), transform 0.32s var(--ease);
+    transition: background var(--t) var(--ease);
 }
 
 .pf-sidebar::-webkit-scrollbar {
@@ -280,7 +282,6 @@ body {
 
 .pf-main {
     flex: 1;
-    margin-left: var(--sidebar-w);
     padding: 4.5rem 3.5rem 4rem;
     max-width: calc(var(--sidebar-w) + 880px);
     background: var(--bg-base);
@@ -1234,9 +1235,19 @@ body {
 }
 
 @media (max-width: 768px) {
+    .pf {
+        flex-direction: column;
+    }
+
     .pf-sidebar {
-        transform: translateX(-100%);
-        width: 282px;
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem 1.25rem;
+        transform: none;
+        top: 0;
     }
 
     .pf-sidebar.pf-open {
@@ -1249,7 +1260,7 @@ body {
     }
 
     .pf-hamburger {
-        display: flex;
+        display: none;
     }
 
     .pf-projects-grid {
@@ -1268,6 +1279,49 @@ body {
     .pf-hero-headline {
         font-size: 2.2rem;
     }
+
+    .pf-profile {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        flex-wrap: wrap;
+    }
+
+    .pf-avatar-ring {
+        order: 2;
+    }
+
+    .pf-avatar {
+        width: 150px;
+        height: 150px;
+        /* border-radius: 50%; */
+    }
+
+    .pf-status {
+        order: 1;
+    }
+
+    .pf-actions {
+        order: 3;
+        width: 100%;
+    }
+
+    .pf-socials {
+        order: 4;
+    }
+
+    .pf-sidebar-contact {
+        order: 5;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .pf-divider {
+        order: 6;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1277,5 +1331,38 @@ body {
 
     .pf-skills-grid {
         grid-template-columns: 1fr;
+    }
+
+    .pf-profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .pf-avatar-ring {
+        order: 1;
+    }
+
+    .pf-avatar {
+        width: 220px;
+        height: 220px;
+        /* border-radius: 50%; */
+    }
+
+    .pf-status {
+        order: 2;
+    }
+
+    .pf-sidebar-contact {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pf-section-title {
+        font-size: 1.6rem;
+    }
+
+    .pf-hero-headline {
+        font-size: 1.8rem;
     }
 }
