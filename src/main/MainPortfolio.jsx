@@ -130,7 +130,7 @@ const MainPortfolio = () => {
                         <div className="pf-avatar-ring">
                             <img
                                 loading="lazy"
-                                src="images/zakaryaerouane.jpg"
+                                src="images/zakaryaerouane.webp"
                                 alt="Zakaryae Rouane"
                                 className="pf-avatar"
                             />
@@ -186,7 +186,7 @@ const MainPortfolio = () => {
                 <main className="pf-main">
                     <section className="pf-hero pf-section pf-visible">
                         <p className="pf-hero-greeting">
-                            <img loading="lazy" src="images/hand1.png" alt="" />
+                            <img loading="lazy" src="images/hand1.webp" alt="" />
                             Say Hello
                         </p>
 
@@ -220,7 +220,7 @@ const MainPortfolio = () => {
 
                     <section className="pf-section">
                         <p className="pf-section-eyebrow">
-                            <img loading="lazy" src="/images/briefcase.png" style={{ width: 14 }} alt="" />
+                            <img loading="lazy" src="/images/briefcase.webp" style={{ width: 14 }} alt="" />
                             Career
                         </p>
                         <h2 className="pf-section-title">Experience</h2>
@@ -248,7 +248,7 @@ const MainPortfolio = () => {
 
                     <section className="pf-section">
                         <p className="pf-section-eyebrow">
-                            <img loading="lazy" src="/images/rocket.png" style={{ width: 14 }} alt="" />
+                            <img loading="lazy" src="/images/rocket.webp" style={{ width: 14 }} alt="" />
                             Work
                         </p>
                         <h2 className="pf-section-title">Projects</h2>
@@ -315,7 +315,7 @@ const MainPortfolio = () => {
 
                     <section className="pf-section">
                         <p className="pf-section-eyebrow">
-                            <img loading="lazy" src="/images/graduation.png" style={{ width: 14 }} alt="" />
+                            <img loading="lazy" src="/images/graduation.webp" style={{ width: 14 }} alt="" />
                             Background
                         </p>
                         <h2 className="pf-section-title">Education</h2>
@@ -335,7 +335,7 @@ const MainPortfolio = () => {
 
                     <section className="pf-section">
                         <p className="pf-section-eyebrow">
-                            <img loading="lazy" src="/images/light.png" style={{ width: 14 }} alt="" />
+                            <img loading="lazy" src="/images/light.webp" style={{ width: 14 }} alt="" />
                             Services
                         </p>
                         <h2 className="pf-section-title">What I Do</h2>
@@ -357,7 +357,7 @@ const MainPortfolio = () => {
 
                     <section className="pf-section">
                         <p className="pf-section-eyebrow">
-                            <img loading="lazy" src="/images/hammer.png" style={{ width: 14 }} alt="" />
+                            <img loading="lazy" src="/images/hammer.webp" style={{ width: 14 }} alt="" />
                             Stack
                         </p>
                         <h2 className="pf-section-title">Skills</h2>
@@ -382,7 +382,7 @@ const MainPortfolio = () => {
 
                     <section className="pf-section">
                         <p className="pf-section-eyebrow">
-                            <img loading="lazy" src="/images/inbox.png" style={{ width: 14 }} alt="" />
+                            <img loading="lazy" src="/images/inbox.webp" style={{ width: 14 }} alt="" />
                             Reach Out
                         </p>
                         <h2 className="pf-section-title">Let's Get in Touch</h2>

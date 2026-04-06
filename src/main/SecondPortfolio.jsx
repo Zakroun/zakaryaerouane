@@ -159,7 +159,7 @@ const SecondPortfolio = () => {
                         <div className="flex justify-center">
                             <img
                                 loading="lazy"
-                                src="images/zakaryaerouane.jpg"
+                                src="images/zakaryaerouane.webp"
                                 alt="Zakaryae Rouane"
                                 className="w-60 h-64 object-cover rounded-xl mb-4 border-4 border-green-500/20"
                             />
@@ -220,7 +220,7 @@ const SecondPortfolio = () => {
                         <div className="flex items-center gap-2 mb-4">
                             <img
                                 loading="lazy"
-                                src="images/hand1.png"
+                                src="images/hand1.webp"
                                 alt="hand"
                                 className="w-6 animate-bounce"
                             />
@@ -266,7 +266,7 @@ const SecondPortfolio = () => {
                         <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                             <img
                                 loading="lazy"
-                                src="/images/briefcase.png"
+                                src="/images/briefcase.webp"
                                 className="w-6 h-6 animate-bounce"
                             />
                             Experience
@@ -299,7 +299,7 @@ const SecondPortfolio = () => {
                         <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                             <img
                                 loading="lazy"
-                                src="/images/rocket.png"
+                                src="/images/rocket.webp"
                                 className="w-6 h-6 animate-bounce"
                                 alt="Rocket icon"
                             />
@@ -431,7 +431,7 @@ const SecondPortfolio = () => {
                         <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                             <img
                                 loading="lazy"
-                                src="/images/graduation.png"
+                                src="/images/graduation.webp"
                                 className="w-6 h-6 animate-bounce"
                             />
                             Education
@@ -458,7 +458,7 @@ const SecondPortfolio = () => {
                         <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                             <img
                                 loading="lazy"
-                                src="/images/light.png"
+                                src="/images/light.webp"
                                 className="w-6 h-6 animate-bounce"
                             />{" "}
                             What I Do
@@ -493,7 +493,7 @@ const SecondPortfolio = () => {
                         <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                             <img
                                 loading="lazy"
-                                src="/images/hammer.png"
+                                src="/images/hammer.webp"
                                 className="w-6 h-6 animate-bounce"
                             />{" "}
                             skills
@@ -526,7 +526,7 @@ const SecondPortfolio = () => {
                         <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                             <img
                                 loading="lazy"
-                                src="/images/inbox.png"
+                                src="/images/inbox.webp"
                                 className="w-6 h-6 animate-bounce"
                             />{" "}
                             Let's Get in Touch!

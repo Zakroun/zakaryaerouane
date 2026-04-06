@@ -817,7 +817,7 @@ const ThirdPortfolio = () => {
                     <aside className="pf-sidebar">
                         <div style={{ textAlign: 'center' }}>
                             <div className="pf-avatar-ring" style={{ width: '140px', margin: '0 auto 1rem' }}>
-                                <img loading="lazy" src="images/zakaryaerouane.jpg" alt="Zakaryae Rouane" />
+                                <img loading="lazy" src="images/zakaryaerouane.webp" alt="Zakaryae Rouane" />
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.6rem' }}>
                                 <span className="pf-status-dot"><span className="dot" />Available for work</span>
@@ -866,7 +866,7 @@ const ThirdPortfolio = () => {
                         {/* ── Hero ── */}
                         <section id="about" className="pf-hero">
                             <div className="hero-greeting">
-                                <img loading="lazy" src="images/hand1.png" alt="" style={{ width: '18px' }} />
+                                <img loading="lazy" src="images/hand1.webp" alt="" style={{ width: '18px' }} />
                                 Hey there, I'm
                             </div>
                             <h1 className="hero-title">

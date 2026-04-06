@@ -153,7 +153,7 @@ export const projects = [
     {
         name: "Avex",
         category: "Fashion E-Commerce",
-        image: "images/avex.png",
+        image: "images/avex.webp",
         pages: "+12 Pages",
         path: "https://avex-navy.vercel.app/",
         color: "bg-[#cac9c2]",
@@ -163,7 +163,7 @@ export const projects = [
     {
         name: "WebVerse Agency",
         category: "Digital Agency Website",
-        image: "images/webverse.png",
+        image: "images/webverse.webp",
         pages: "+12 Pages",
         path: "https://webverse-chi.vercel.app/",
         color: "bg-black",
@@ -173,7 +173,7 @@ export const projects = [
     {
         name: "Proofly",
         category: "SaaS / Startup Idea Validation",
-        image: "images/proofly.png",
+        image: "images/proofly.webp",
         pages: "+12 Pages",
         path: "https://flow-board-ten.vercel.app/",
         color: "bg-[#2d2254]",
@@ -183,7 +183,7 @@ export const projects = [
     {
         name: "FlowBoard",
         category: "Project Management Tool",
-        image: "images/flowboard.png",
+        image: "images/flowboard.webp",
         pages: "+12 Pages",
         path: "https://flow-board-ten.vercel.app/",
         color: "bg-[#1c453f]",
@@ -193,7 +193,7 @@ export const projects = [
     {
         name: "Unicomnova AI",
         category: "AI Chatbot",
-        image: "images/unicomnova.png",
+        image: "images/unicomnova.webp",
         pages: "+7 Pages",
         color: "bg-gray-100",
         path: "https://unicomnova-ai.vercel.app/",
@@ -203,7 +203,7 @@ export const projects = [
     {
         name: "NovaReach Agency",
         category: "Marketing Agency Website",
-        image: "images/novareach.png",
+        image: "images/novareach.webp",
         pages: "+12 Pages",
         path: "https://nova-reach-azure.vercel.app/",
         color: "bg-[#c13f51]",
@@ -213,7 +213,7 @@ export const projects = [
     {
         name: "Restova",
         category: "Restaurant Reservation System",
-        image: "images/restova.png",
+        image: "images/restova.webp",
         pages: "+12 Pages",
         path: "https://restova.vercel.app/",
         color: "bg-[#49392f]",
@@ -223,7 +223,7 @@ export const projects = [
     {
         name: "Beauty Salon",
         category: "Beauty Salon Booking System",
-        image: "images/beautysalon.png",
+        image: "images/beautysalon.webp",
         pages: "+12 Pages",
         path: "https://beauty-salon-one-blue.vercel.app/",
         color: "bg-[#efa6d1]",
@@ -233,7 +233,7 @@ export const projects = [
     {
         name: "HomeNest",
         category: "Rental Platform",
-        image: "images/homenest.png",
+        image: "images/homenest.webp",
         pages: "+12 Pages",
         path: "https://homenest-omega.vercel.app/",
         color: "bg-blue-800",
@@ -243,7 +243,7 @@ export const projects = [
     {
         name: "Tripplanner",
         category: "Travel Planning App",
-        image: "images/tripplanner.png",
+        image: "images/tripplanner.webp",
         pages: "+10 Pages",
         path: "https://trip-planner-xi-pied.vercel.app/",
         color: "bg-blue-200",
@@ -253,7 +253,7 @@ export const projects = [
     {
         name: "GoalPass",
         category: "Match Ticketing System",
-        image: "images/goalpass.png",
+        image: "images/goalpass.webp",
         pages: "+10 Pages",
         path: "https://goalpass.vercel.app/",
         color: "bg-green-800",
@@ -263,7 +263,7 @@ export const projects = [
     {
         name: "3otor",
         category: "Perfume E-Commerce",
-        image: "images/3otorperfum.png",
+        image: "images/3otorperfum.webp",
         pages: "+10 Pages",
         color: "bg-amber-600",
         path: "https://3otor-perfums.vercel.app/",
@@ -273,7 +273,7 @@ export const projects = [
     {
         name: "Edulead",
         category: "Education Platform",
-        image: "images/edulead.png",
+        image: "images/edulead.webp",
         pages: "+12 Pages",
         path: "https://edulead-alpha.vercel.app/",
         color: "bg-blue-200",
@@ -283,7 +283,7 @@ export const projects = [
     {
         name: "AFCON 2025",
         category: "Sports / Football Web App",
-        image: "images/afcon2025.png",
+        image: "images/afcon2025.webp",
         pages: "+10 Pages",
         path: "https://afcon-2025.vercel.app/",
         color: "bg-[#800000]",
@@ -293,7 +293,7 @@ export const projects = [
     {
         name: "Homixstore",
         category: "E-Commerce Store",
-        image: "images/homixstore.png",
+        image: "images/homixstore.webp",
         pages: "+15 Pages",
         color: "bg-orange-500",
         path: "https://homixstore.vercel.app/",
@@ -303,7 +303,7 @@ export const projects = [
     {
         name: "DocsAura",
         category: "Healthcare Appointment Platform",
-        image: "images/docsaura.png",
+        image: "images/docsaura.webp",
         pages: "+20 Pages",
         color: "bg-cyan-200",
         path: "https://docsaura.vercel.app/",
