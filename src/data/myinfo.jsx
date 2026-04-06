@@ -316,18 +316,22 @@ export const socials = [
     {
         icon: <FaGithub className="w-4 h-4" />,
         link: "https://github.com/Zakroun",
+        ariaLabel: "GitHub Profile",
     },
     {
         icon: <FaLinkedin className="w-4 h-4" />,
         link: "https://www.linkedin.com/in/zakaryae-rouane-53086229a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        ariaLabel: "LinkedIn Profile",
     },
     {
         icon: <RiInstagramFill className="w-4 h-4" />,
         link: "https://www.instagram.com/coding.withzak/profilecard/?igsh=YjZxOHlwaTNseHps",
+        ariaLabel: "Instagram Profile",
     },
     {
         icon: <MdOutgoingMail className="w-4 h-4" />,
         link: "mailto:zakaryaerouane@gmail.com",
+        ariaLabel: "Send Email",
     },
 ];
 

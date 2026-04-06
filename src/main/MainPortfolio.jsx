@@ -159,7 +159,7 @@ const MainPortfolio = () => {
 
                     <div className="pf-socials">
                         {socials.map((s, i) => (
-                            <a key={i} href={s.link} target="_blank" rel="noopener noreferrer" className="pf-social-link">
+                            <a key={i} href={s.link} aria-label={s.ariaLabel} target="_blank" rel="noopener noreferrer" className="pf-social-link">
                                 {s.icon}
                             </a>
                         ))}
